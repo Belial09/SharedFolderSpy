@@ -1,0 +1,9 @@
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\bin\Debug\SharedFolderSpy.Data.dll
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\bin\Debug\SharedFolderSpy.Data.pdb
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\obj\Debug\SharedFolderSpy.Data.dll
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\obj\Debug\SharedFolderSpy.Data.pdb
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\bin\Debug\Aga.Controls.dll
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\bin\Debug\Aga.Controls.pdb
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\obj\Debug\SharedFolderSpy.Data.csprojResolveAssemblyReference.cache
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\bin\Debug\SharedFolderSpy.WinApi.dll
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\bin\Debug\SharedFolderSpy.WinApi.pdb

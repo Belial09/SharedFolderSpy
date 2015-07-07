@@ -1,20 +1,61 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
-namespace Interop.NetAPI32
+using SharedFolderSpy.WinApi.Entities;
+
+namespace SharedFolderSpy.WinApi
 {
     public class WinApi
     {
-        [DllImport("Netapi32.dll", SetLastError = true)]
-        static extern int NetApiBufferFree(IntPtr Buffer);
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto, Pack = 4)]
-        struct FILE_INFO_3
+        public enum NET_API_STATUS : uint
         {
-            public int fi3_id;
-            public int fi3_permission;
-            public int fi3_num_locks;
-            public string fi3_pathname;
-            public string fi3_username;
+            NERR_Success = 0,
+            /// <summary>
+            /// This computer name is invalid.
+            /// </summary>
+            NERR_InvalidComputer = 2351,
+            /// <summary>
+            /// This operation is only allowed on the primary domain controller of the domain.
+            /// </summary>
+            NERR_NotPrimary = 2226,
+            /// <summary>
+            /// This operation is not allowed on this special group.
+            /// </summary>
+            NERR_SpeGroupOp = 2234,
+            /// <summary>
+            /// This operation is not allowed on the last administrative account.
+            /// </summary>
+            NERR_LastAdmin = 2452,
+            /// <summary>
+            /// The password parameter is invalid.
+            /// </summary>
+            NERR_BadPassword = 2203,
+            /// <summary>
+            /// The password does not meet the password policy requirements. 
+            /// Check the minimum password length, password complexity and password history requirements.
+            /// </summary>
+            NERR_PasswordTooShort = 2245,
+            /// <summary>
+            /// The user name could not be found.
+            /// </summary>
+            NERR_UserNotFound = 2221,
+            ERROR_ACCESS_DENIED = 5,
+            ERROR_NOT_ENOUGH_MEMORY = 8,
+            ERROR_INVALID_PARAMETER = 87,
+            ERROR_INVALID_NAME = 123,
+            ERROR_INVALID_LEVEL = 124,
+            ERROR_MORE_DATA = 234,
+            ERROR_SESSION_CREDENTIAL_CONFLICT = 1219,
+            /// <summary>
+            /// The RPC server is not available. This error is returned if a remote computer was specified in
+            /// the lpServer parameter and the RPC server is not available.
+            /// </summary>
+            RPC_S_SERVER_UNAVAILABLE = 2147944122, // 0x800706BA
+            /// <summary>
+            /// Remote calls are not allowed for this process. This error is returned if a remote computer was 
+            /// specified in the lpServer parameter and remote calls are not allowed for this process.
+            /// </summary>
+            RPC_E_REMOTE_DISABLED = 2147549468 // 0x8001011C
         }
 
         [DllImport("netapi32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
@@ -30,74 +71,52 @@ namespace Interop.NetAPI32
              IntPtr resume_handle
         );
 
-        [DllImport("netapi32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
-        static extern int NetFileGetInfo(
-          string servername,
-          int fileid,
-          int level,
-          ref IntPtr bufptr
-        );
+        [DllImport("Netapi32.dll", SetLastError = true)]
+        static extern int NetApiBufferFree(IntPtr Buffer);
 
-        private int GetFileIdFromPath(string filePath)
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        struct FILE_INFO_3
         {
-            const int MAX_PREFERRED_LENGTH = -1;
+            public int fi3_id;
+            public int fi3_permission;
+            public int fi3_num_locks;
+            [MarshalAs(UnmanagedType.LPWStr)]
+            public string fi3_pathname;
+            [MarshalAs(UnmanagedType.LPWStr)]
+            public string fi3_username;
+        }
+        const int MAX_PREFERRED_LENGTH = -1;
 
+        public static List<NEtFileEnumResult> Check()
+        {
+            var returnValue = new List<NEtFileEnumResult>();
             int dwReadEntries;
             int dwTotalEntries;
             IntPtr pBuffer = IntPtr.Zero;
-            FILE_INFO_3 pCurrent = new FILE_INFO_3();
+            var pCurrent = new FILE_INFO_3();
 
-            int dwStatus = NetFileEnum(null, filePath, null, 3, ref pBuffer, MAX_PREFERRED_LENGTH, out dwReadEntries, out dwTotalEntries, IntPtr.Zero);
+            int dwStatus = NetFileEnum("localhost", null, null, 3, ref pBuffer, MAX_PREFERRED_LENGTH, out dwReadEntries, out dwTotalEntries, IntPtr.Zero);
 
-            if (dwStatus == 0)
+            if ((NET_API_STATUS)dwStatus == NET_API_STATUS.NERR_Success)
             {
-                for (int dwIndex = 0; dwIndex < dwReadEntries; dwIndex++)
+                for (var dwIndex = 0; dwIndex < dwReadEntries; dwIndex++)
                 {
-
-                    IntPtr iPtr = new IntPtr(pBuffer.ToInt32() + (dwIndex * Marshal.SizeOf(pCurrent)));
+                    var iPtr = new IntPtr(pBuffer.ToInt32() + (dwIndex * Marshal.SizeOf(pCurrent)));
                     pCurrent = (FILE_INFO_3)Marshal.PtrToStructure(iPtr, typeof(FILE_INFO_3));
-
-                    int fileId = pCurrent.fi3_id;
-
-                    //because of the path filter in the NetFileEnum function call, the first (and hopefully only) entry should be the correct one
-                    NetApiBufferFree(pBuffer);
-                    return fileId;
+                    var nEtFileEnumResult = new NEtFileEnumResult
+                    {
+                        Index = dwIndex, 
+                        Id = pCurrent.fi3_id, 
+                        NumberOfLocks = pCurrent.fi3_num_locks, 
+                        Pathname = pCurrent.fi3_pathname, 
+                        Permission = pCurrent.fi3_permission, 
+                        Username = pCurrent.fi3_username
+                    };
+                    returnValue.Add(nEtFileEnumResult);
                 }
+                NetApiBufferFree(pBuffer);
             }
-
-            NetApiBufferFree(pBuffer);
-            return -1;  //should probably do something else here like throw an error
-        }
-
-
-        private string GetUsernameHandlingFile(int fileId)
-        {
-            string defaultValue = "[Unknown User]";
-
-            if (fileId == -1)
-            {
-                return defaultValue;
-            }
-
-            IntPtr pBuffer_Info = IntPtr.Zero;
-            int dwStatus_Info = NetFileGetInfo(null, fileId, 3, ref pBuffer_Info);
-
-            if (dwStatus_Info == 0)
-            {
-                IntPtr iPtr_Info = new IntPtr(pBuffer_Info.ToInt32());
-                FILE_INFO_3 pCurrent_Info = (FILE_INFO_3)Marshal.PtrToStructure(iPtr_Info, typeof(FILE_INFO_3));
-                NetApiBufferFree(pBuffer_Info);
-                return pCurrent_Info.fi3_username;
-            }
-
-            NetApiBufferFree(pBuffer_Info);
-            return defaultValue;  //default if not successfull above
-        }
-
-        private string GetUsernameHandlingFile(string filePath)
-        {
-            int fileId = GetFileIdFromPath(filePath);
-            return GetUsernameHandlingFile(fileId);
+            return returnValue;
         }
     }
 }

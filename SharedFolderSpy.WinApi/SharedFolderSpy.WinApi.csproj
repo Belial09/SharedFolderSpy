@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Win32Share.cs" />
+    <Compile Include="Entities\NEtFileEnumResult.cs" />
+    <Compile Include="Management.cs" />
     <Compile Include="NetAPI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

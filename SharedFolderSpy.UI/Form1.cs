@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
 using System.Windows.Forms;
-using SharingTest;
+using SharedFolderSpy.WinApi;
 
 namespace SharedFolderSpy.UI
 {
@@ -19,6 +19,9 @@ namespace SharedFolderSpy.UI
         public Form1()
         {
             InitializeComponent();
+
+            var data = Management.RetrieveLocalShares();
+            var xxx = SharedFolderSpy.WinApi.WinApi.Check();
 
             fileSystemWatcher1.Path = @"\\P724-MF\AMD-Catalyst-14-9-win7-win8.1-64Bit-dd-ccc-whql";
             //var shares = Win32Share.GetAllShares();

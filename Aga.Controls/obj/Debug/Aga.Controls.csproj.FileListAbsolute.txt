@@ -4,3 +4,4 @@ D:\.NET Projekte\SharedFolderSpy\Aga.Controls\obj\Debug\Aga.Controls.Properties.
 D:\.NET Projekte\SharedFolderSpy\Aga.Controls\obj\Debug\Aga.Controls.csproj.GenerateResource.Cache
 D:\.NET Projekte\SharedFolderSpy\Aga.Controls\obj\Debug\Aga.Controls.dll
 D:\.NET Projekte\SharedFolderSpy\Aga.Controls\obj\Debug\Aga.Controls.pdb
+D:\.NET Projekte\SharedFolderSpy\Aga.Controls\obj\Debug\Aga.Controls.csprojResolveAssemblyReference.cache

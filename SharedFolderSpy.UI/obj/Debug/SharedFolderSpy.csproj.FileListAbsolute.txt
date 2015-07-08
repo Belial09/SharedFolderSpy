@@ -8,12 +8,3 @@ D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.UI\bin\Debug\SharedFolderSpy.Na
 D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.UI\bin\Debug\SharedFolderSpy.Controls.pdb
 D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.UI\bin\Debug\SharedFolderSpy.Data.pdb
 D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.UI\bin\Debug\SharedFolderSpy.Native.pdb
-D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.UI\obj\Debug\SharedFolderSpy.csprojResolveAssemblyReference.cache
-D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.UI\obj\Debug\Fesslersoft.SharedFolderSpy.UI.Form1.resources
-D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.UI\obj\Debug\Fesslersoft.SharedFolderSpy.UI.Properties.Resources.resources
-D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.UI\obj\Debug\SharedFolderSpy.csproj.GenerateResource.Cache
-D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.UI\obj\Debug\SharedFolderSpy.exe
-D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.UI\obj\Debug\SharedFolderSpy.pdb
-D:\.NET Projekte\SharedFolderSpy_BIN\SharedFolderSpy.exe.config
-D:\.NET Projekte\SharedFolderSpy_BIN\SharedFolderSpy.exe
-D:\.NET Projekte\SharedFolderSpy_BIN\SharedFolderSpy.pdb

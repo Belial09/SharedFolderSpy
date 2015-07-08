@@ -4,8 +4,3 @@ D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\bin\Debug\SharedFolderSpy.
 D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\bin\Debug\SharedFolderSpy.Native.dll
 D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\bin\Debug\SharedFolderSpy.Controls.pdb
 D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\bin\Debug\SharedFolderSpy.Native.pdb
-D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\obj\Debug\SharedFolderSpy.Data.csprojResolveAssemblyReference.cache
-D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\obj\Debug\SharedFolderSpy.Data.dll
-D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Data\obj\Debug\SharedFolderSpy.Data.pdb
-D:\.NET Projekte\SharedFolderSpy_BIN\SharedFolderSpy.Data.dll
-D:\.NET Projekte\SharedFolderSpy_BIN\SharedFolderSpy.Data.pdb

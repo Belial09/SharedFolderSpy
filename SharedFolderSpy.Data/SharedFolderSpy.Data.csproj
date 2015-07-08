@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\SharedFolderSpy_BIN\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -37,7 +37,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -49,13 +48,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Aga.Controls\Aga.Controls.csproj">
-      <Project>{e73bb233-d88b-44a7-a98f-d71ee158381d}</Project>
-      <Name>Aga.Controls</Name>
+    <ProjectReference Include="..\SharedFolderSpy.Controls\SharedFolderSpy.Controls.csproj">
+      <Project>{FCDB5E6E-2D22-4D14-A72F-9DCE449F5EE7}</Project>
+      <Name>SharedFolderSpy.Controls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SharedFolderSpy.WinApi\SharedFolderSpy.WinApi.csproj">
+    <ProjectReference Include="..\SharedFolderSpy.WinApi\SharedFolderSpy.Native.csproj">
       <Project>{c53e14e1-550a-45e4-b381-2d79a32c8282}</Project>
-      <Name>SharedFolderSpy.WinApi</Name>
+      <Name>SharedFolderSpy.Native</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

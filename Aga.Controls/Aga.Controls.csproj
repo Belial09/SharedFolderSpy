@@ -19,7 +19,8 @@
     <SccProvider>
     </SccProvider>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -145,8 +146,6 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="key.snk" />
-    <None Include="Migrated rules for Aga.Controls.ruleset" />
     <None Include="Resources\minus.bmp" />
     <None Include="Resources\plus.bmp" />
     <None Include="Resources\check.bmp" />

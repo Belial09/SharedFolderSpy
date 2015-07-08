@@ -1,90 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Net;
-using System.Runtime.InteropServices;
 using System.Security.Principal;
-using System.Text;
 using System.Windows.Forms;
-using SharedFolderSpy.WinApi;
-using SharedFolderSpy.WinApi.ph03n1x;
+using Fesslersoft.SharedFolderSpy.Native;
 
-namespace SharedFolderSpy.UI
+namespace Fesslersoft.SharedFolderSpy.UI
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
-
-
-            
-
-
-
-
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //var data = Management.RetrieveLocalShares();
-            //var xxx = SharedFolderSpy.WinApi.WinApi.Check();
-
-            //fileSystemWatcher1.Path = @"\\P724-MF\AMD-Catalyst-14-9-win7-win8.1-64Bit-dd-ccc-whql";
-            ////var shares = Win32Share.GetAllShares();
-
-            ////foreach (var win32Share in shares)
-            ////{
-            ////    var x = win32Share.AccessMask;
-            ////}
-
-            ////List<ConnectionShare> connections = ConnectionShare.BuildConnectionShareList();
-            ////var abc = new ListBox();
-        }
-
-        private void fileSystemWatcher1_Changed(object sender, FileSystemEventArgs e)
-        {
-            bool isTempFile = e.Name.StartsWith("~$") || e.Name.EndsWith(".tmp");
-            if (!isTempFile)
-            {
-                var ipadress = new FileInfo(e.FullPath).GetAccessControl().GetOwner(typeof(NTAccount));
-            }
-        }
-
-        private void fileSystemWatcher1_Created(object sender, FileSystemEventArgs e)
-        {
-            bool isTempFile = e.Name.StartsWith("~$") || e.Name.EndsWith(".tmp");
-            IdentityReference ipadress = null;
-            if (!isTempFile)
-            {
-                ipadress =new FileInfo(e.FullPath).GetAccessControl().GetOwner(typeof(NTAccount));
-            }
-            var x = ipadress;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
         }
 
         private void Form1_Shown(object sender, EventArgs e)
@@ -93,9 +20,9 @@ namespace SharedFolderSpy.UI
             {
                 Application.DoEvents();
 
-                List<NetAPI32.ShareInfo2> shares = NetAPI32.BuildNetShareEnumList(null);
+                var shares = Win32.BuildNetShareEnumList(null);
                 listBox1.Items.Clear();
-                foreach (NetAPI32.ShareInfo2 share in shares)
+                foreach (var share in shares)
                 {
                     int maxAllowedUsers = share.MaxUsers;
                     int shareType = share.ShareType;
@@ -108,23 +35,24 @@ namespace SharedFolderSpy.UI
                 }
 
                 listBox2.Items.Clear();
-                List<NetAPI32.FileInfo3> fileconnections = NetAPI32.BuildNetFileEnumList(null);
-                foreach (NetAPI32.FileInfo3 fileconnection in fileconnections)
+                var fileconnections = Win32.BuildNetFileEnumList(null);
+                foreach (var fileconnection in fileconnections)
                 {
                     
                     int remoteUserPrimition = fileconnection.Permission;
-                    string remoteUsername = fileconnection.UserName;
-                    string sharePath = fileconnection.PathName;
-                    int shareID = fileconnection.SessionID;
+                    string remoteUsername = fileconnection.Username;
+                    string sharePath = fileconnection.Pathname;
+                    int shareID = fileconnection.Id;
+                    
 
                     if (sharePath == @"R:\Downloads\Entpackt\MOVIES\SERIEN\Person of Interest" && remoteUsername == "mf")
                     {
-                        NetAPI32.RemoveFileAccess(null, shareID);
+                        Win32.RemoveFileAccess(null, shareID);
                     }
 
                     if (sharePath.Contains(".mkv"))
                     {
-                        NetAPI32.RemoveFileAccess(null, shareID);
+                        Win32.RemoveFileAccess(null, shareID);
                         
                         //NetAPI32.RemoveSession(null, null, "MF");
                     }
@@ -133,8 +61,8 @@ namespace SharedFolderSpy.UI
                 }
 
                 listBox3.Items.Clear();
-                List<NetAPI32.SessionInfo502> connectionsInfo = NetAPI32.BuildNetSessionEnumList(null);
-                foreach (NetAPI32.SessionInfo502 connectionInfo in connectionsInfo)
+                var connectionsInfo = Win32.BuildNetSessionEnumList(null);
+                foreach (var connectionInfo in connectionsInfo)
                 {
                     string remoteUsername = connectionInfo.UserName;
                     string remoteIP = connectionInfo.ComputerName;

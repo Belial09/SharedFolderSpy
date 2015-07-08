@@ -7,7 +7,7 @@
     <ProjectGuid>{FCDB5E6E-2D22-4D14-A72F-9DCE449F5EE7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SharedFolderSpy.Controls</RootNamespace>
+    <RootNamespace>Fesslersoft.SharedFolderSpy.Controls</RootNamespace>
     <AssemblyName>SharedFolderSpy.Controls</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\SharedFolderSpy_BIN\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -37,6 +37,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design">
+      <HintPath>C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Design.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -46,9 +49,230 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdvancedTreeview\DrawContext.cs" />
+    <Compile Include="AdvancedTreeview\DropPosition.cs" />
+    <Compile Include="AdvancedTreeview\EditorContext.cs" />
+    <Compile Include="AdvancedTreeview\enums.cs" />
+    <Compile Include="AdvancedTreeview\InputState.cs" />
+    <Compile Include="AdvancedTreeview\InputWithControl.cs" />
+    <Compile Include="AdvancedTreeview\InputWithShift.cs" />
+    <Compile Include="AdvancedTreeview\IToolTipProvider.cs" />
+    <Compile Include="AdvancedTreeview\ITreeModel.cs" />
+    <Compile Include="AdvancedTreeview\MouseArgs.cs" />
+    <Compile Include="AdvancedTreeview\Node.cs" />
+    <Compile Include="AdvancedTreeview\NodeControls\BaseTextControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdvancedTreeview\NodeControls\BindableControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdvancedTreeview\NodeControls\EditableControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdvancedTreeview\NodeControls\NodeCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdvancedTreeview\NodeControls\NodeComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdvancedTreeview\NodeControls\NodeControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdvancedTreeview\NodeControls\NodeControlsCollection.cs" />
+    <Compile Include="AdvancedTreeview\NodeControls\NodeIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdvancedTreeview\NodeControls\NodePlusMinus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdvancedTreeview\NodeControls\NodeStateIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdvancedTreeview\NodeControls\NodeTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdvancedTreeview\NormalInputState.cs" />
+    <Compile Include="AdvancedTreeview\ResizeColumnState.cs" />
+    <Compile Include="AdvancedTreeview\TextHelper.cs" />
+    <Compile Include="AdvancedTreeview\TreeColumn.cs" />
+    <Compile Include="AdvancedTreeview\TreeColumnCollection.cs" />
+    <Compile Include="AdvancedTreeview\TreeColumnEventArgs.cs" />
+    <Compile Include="AdvancedTreeview\TreeModel.cs" />
+    <Compile Include="AdvancedTreeview\TreeModelEventArgs.cs" />
+    <Compile Include="AdvancedTreeview\TreeNodeAdv.cs" />
+    <Compile Include="AdvancedTreeview\TreeNodeAdvMouseEventArgs.cs" />
+    <Compile Include="AdvancedTreeview\TreePath.cs" />
+    <Compile Include="AdvancedTreeview\TreePathEventArgs.cs" />
+    <Compile Include="AdvancedTreeview\TreeViewAdv.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdvancedTreeview\TreeViewAdv.Designer.cs">
+      <DependentUpon>TreeViewAdv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdvancedTreeview\TreeViewAdvCancelEventArgs.cs" />
+    <Compile Include="AdvancedTreeview\TreeViewAdvEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaskbarNotifier.cs">
+    <Compile Include="Notifications\TaskbarNotifier.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Classes\Collections\RibbonButtonCollection.cs" />
+    <Compile Include="Ribbon\Classes\Collections\RibbonContextCollection.cs" />
+    <Compile Include="Ribbon\Classes\Collections\RibbonItemCollection.cs" />
+    <Compile Include="Ribbon\Classes\Collections\RibbonItemGroupItemCollection.cs" />
+    <Compile Include="Ribbon\Classes\Collections\RibbonPanelCollection.cs" />
+    <Compile Include="Ribbon\Classes\Collections\RibbonQuickAccessToolbarItemCollection.cs" />
+    <Compile Include="Ribbon\Classes\Collections\RibbonTabCollection.cs" />
+    <Compile Include="Ribbon\Classes\Designers\RibbonButtonDesigner.cs" />
+    <Compile Include="Ribbon\Classes\Designers\RibbonButtonListDesigner.cs" />
+    <Compile Include="Ribbon\Classes\Designers\RibbonComboBoxDesigner.cs" />
+    <Compile Include="Ribbon\Classes\Designers\RibbonDesigner.cs" />
+    <Compile Include="Ribbon\Classes\Designers\RibbonElementWithItemCollectionDesigner.cs" />
+    <Compile Include="Ribbon\Classes\Designers\RibbonItemGroupDesigner.cs" />
+    <Compile Include="Ribbon\Classes\Designers\RibbonOrbMenuItemDesigner.cs" />
+    <Compile Include="Ribbon\Classes\Designers\RibbonPanelDesigner.cs" />
+    <Compile Include="Ribbon\Classes\Designers\RibbonTabDesigner.cs" />
+    <Compile Include="Ribbon\Classes\Enums\Enums.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonButtonRenderEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonCanvasEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonDropDownRenderEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonElementMeasureSizeEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonElementPaintEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonElementPopUpEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonHostSizeModeHandledEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonItemBoundsEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonItemEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonItemRenderEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonOrbDropDownEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonPanelRenderEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonRenderEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonTabRenderEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonTextEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\EventArgs\RibbonToolTipRenderEventArgs.cs" />
+    <Compile Include="Ribbon\Classes\GlobalHook.cs" />
+    <Compile Include="Ribbon\Classes\Glyphs\RibbonOrbAdornerGlyph.cs" />
+    <Compile Include="Ribbon\Classes\Glyphs\RibbonPanelGlyph.cs" />
+    <Compile Include="Ribbon\Classes\Glyphs\RibbonQuickAccessToolbarGlyph.cs" />
+    <Compile Include="Ribbon\Classes\Glyphs\RibbonTabGlyph.cs" />
+    <Compile Include="Ribbon\Classes\Interfaces\IContainsRibbonComponents.cs" />
+    <Compile Include="Ribbon\Classes\Interfaces\IContainsSelectableRibbonItems.cs" />
+    <Compile Include="Ribbon\Classes\Interfaces\IDropDownRibbonItem.cs" />
+    <Compile Include="Ribbon\Classes\Interfaces\IRibbonElement.cs" />
+    <Compile Include="Ribbon\Classes\Interfaces\IRibbonForm.cs" />
+    <Compile Include="Ribbon\Classes\Interfaces\IRibbonToolTip.cs" />
+    <Compile Include="Ribbon\Classes\Interfaces\IScrollableRibbonItem.cs" />
+    <Compile Include="Ribbon\Classes\Renderers\Color Tables\RibbonProfesionalRendererColorTable.cs" />
+    <Compile Include="Ribbon\Classes\Renderers\Color Tables\RibbonProfesionalRendererColorTableBlack.cs" />
+    <Compile Include="Ribbon\Classes\Renderers\Color Tables\RibbonProfesionalRendererColorTableBlue.cs" />
+    <Compile Include="Ribbon\Classes\Renderers\Color Tables\RibbonProfesionalRendererColorTableGreen.cs" />
+    <Compile Include="Ribbon\Classes\Renderers\Color Tables\RibbonProfesionalRendererColorTableHalloween.cs" />
+    <Compile Include="Ribbon\Classes\Renderers\Color Tables\RibbonProfesionalRendererColorTableJellyBelly.cs" />
+    <Compile Include="Ribbon\Classes\Renderers\Color Tables\RibbonProfesionalRendererColorTablePurple.cs" />
+    <Compile Include="Ribbon\Classes\Renderers\Color Tables\ToolStripColors.cs" />
+    <Compile Include="Ribbon\Classes\Renderers\RibbonColorPart.cs" />
+    <Compile Include="Ribbon\Classes\Renderers\RibbonProfessionalRenderer.cs" />
+    <Compile Include="Ribbon\Classes\Renderers\RibbonRenderer.cs" />
+    <Compile Include="Ribbon\Classes\Renderers\ToolStripRenderer.cs" />
+    <Compile Include="Ribbon\Classes\RibbonFormHelper.cs" />
+    <Compile Include="Ribbon\Classes\RibbonItemCollectionEditor.cs" />
+    <Compile Include="Ribbon\Classes\RibbonMouseSensor.cs" />
+    <Compile Include="Ribbon\Classes\RibbonPopupManager.cs" />
+    <Compile Include="Ribbon\Classes\Set.cs" />
+    <Compile Include="Ribbon\Classes\Theme.cs" />
+    <Compile Include="Ribbon\Classes\WinApi.cs" />
+    <Compile Include="Ribbon\Component Classes\Ribbon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonButtonList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonCaptionButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonColorChooser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonContext.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonDescriptionMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonDropDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonHost.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonItemGroup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonOrbDropDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonOrbMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonOrbOptionButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonOrbRecentItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonPanelPopup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonPopup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonQuickAccessToolbar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonSeparator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonTab.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\Component Classes\RibbonWrappedDropDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ribbon\RibbonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UxTabControlCS\GdiMemoryContext.cs" />
+    <Compile Include="UxTabControlCS\NativeMethods.cs" />
+    <Compile Include="UxTabControlCS\UxTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UxTabControlCS\UxTabControl.NativeUpDown.cs">
+      <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -58,6 +282,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -68,6 +293,30 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FolderClosed.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Leaf.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uncheck.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unknown.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

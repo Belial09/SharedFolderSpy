@@ -1,0 +1,6 @@
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.WinApi\bin\Debug\SharedFolderSpy.Native.dll
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.WinApi\bin\Debug\SharedFolderSpy.Native.pdb
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.WinApi\obj\Debug\SharedFolderSpy.Native.dll
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.WinApi\obj\Debug\SharedFolderSpy.Native.pdb
+D:\.NET Projekte\SharedFolderSpy_BIN\SharedFolderSpy.Native.dll
+D:\.NET Projekte\SharedFolderSpy_BIN\SharedFolderSpy.Native.pdb

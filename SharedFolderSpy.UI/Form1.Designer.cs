@@ -1,4 +1,9 @@
-﻿namespace SharedFolderSpy.UI
+﻿using System.Windows.Forms;
+using Fesslersoft.SharedFolderSpy.Controls.Ribbon;
+using Fesslersoft.SharedFolderSpy.Controls.Ribbon.Classes.Enums;
+using Fesslersoft.SharedFolderSpy.Controls.UxTabControlCS;
+
+namespace Fesslersoft.SharedFolderSpy.UI
 {
     partial class Form1
     {
@@ -35,18 +40,18 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.listBox3 = new System.Windows.Forms.ListBox();
-            this.ribbon1 = new System.Windows.Forms.Ribbon();
-            this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
-            this.ribbonTab1 = new System.Windows.Forms.RibbonTab();
-            this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton3 = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton4 = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton5 = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton6 = new System.Windows.Forms.RibbonButton();
-            this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonTab2 = new System.Windows.Forms.RibbonTab();
-            this.uxTabControl1 = new VSControls.UxTabControl();
+            this.ribbon1 = new Ribbon();
+            this.ribbonButton1 = new RibbonButton();
+            this.ribbonTab1 = new RibbonTab();
+            this.ribbonPanel1 = new RibbonPanel();
+            this.ribbonButton2 = new RibbonButton();
+            this.ribbonButton3 = new RibbonButton();
+            this.ribbonButton4 = new RibbonButton();
+            this.ribbonButton5 = new RibbonButton();
+            this.ribbonButton6 = new RibbonButton();
+            this.ribbonPanel2 = new RibbonPanel();
+            this.ribbonTab2 = new RibbonTab();
+            this.uxTabControl1 = new UxTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -68,9 +73,9 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 681);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 422);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1191, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(641, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -78,8 +83,6 @@
             // 
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
-            this.fileSystemWatcher1.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Changed);
-            this.fileSystemWatcher1.Created += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Created);
             // 
             // listBox1
             // 
@@ -87,7 +90,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(3, 3);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(1177, 498);
+            this.listBox1.Size = new System.Drawing.Size(627, 239);
             this.listBox1.TabIndex = 3;
             // 
             // listBox2
@@ -124,7 +127,7 @@
             this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 447);
             this.ribbon1.OrbDropDown.TabIndex = 0;
             this.ribbon1.OrbImage = null;
-            this.ribbon1.OrbStyle = System.Windows.Forms.RibbonOrbStyle.Office_2013;
+            this.ribbon1.OrbStyle = RibbonOrbStyle.Office_2013;
             this.ribbon1.OrbText = "File";
             // 
             // 
@@ -132,18 +135,18 @@
             this.ribbon1.QuickAcessToolbar.Items.Add(this.ribbonButton1);
             this.ribbon1.QuickAcessToolbar.Visible = false;
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.ribbon1.Size = new System.Drawing.Size(1191, 151);
+            this.ribbon1.Size = new System.Drawing.Size(641, 151);
             this.ribbon1.TabIndex = 4;
             this.ribbon1.Tabs.Add(this.ribbonTab1);
             this.ribbon1.Tabs.Add(this.ribbonTab2);
             this.ribbon1.TabsMargin = new System.Windows.Forms.Padding(12, 2, 20, 0);
             this.ribbon1.Text = "ribbon1";
-            this.ribbon1.ThemeColor = System.Windows.Forms.RibbonTheme.Blue;
+            this.ribbon1.ThemeColor = RibbonTheme.Blue;
             // 
             // ribbonButton1
             // 
             this.ribbonButton1.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.Image")));
-            this.ribbonButton1.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
+            this.ribbonButton1.MaxSizeMode = RibbonElementSizeMode.Compact;
             this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
             this.ribbonButton1.Text = "ribbonButton1";
             // 
@@ -206,7 +209,7 @@
             this.uxTabControl1.Location = new System.Drawing.Point(0, 151);
             this.uxTabControl1.Name = "uxTabControl1";
             this.uxTabControl1.SelectedIndex = 0;
-            this.uxTabControl1.Size = new System.Drawing.Size(1191, 530);
+            this.uxTabControl1.Size = new System.Drawing.Size(641, 271);
             this.uxTabControl1.TabIndex = 5;
             // 
             // tabPage1
@@ -215,7 +218,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1183, 504);
+            this.tabPage1.Size = new System.Drawing.Size(633, 245);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -246,7 +249,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1191, 703);
+            this.ClientSize = new System.Drawing.Size(641, 444);
             this.Controls.Add(this.uxTabControl1);
             this.Controls.Add(this.ribbon1);
             this.Controls.Add(this.statusStrip1);
@@ -254,7 +257,6 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SFW - Shared Folder Watch";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.uxTabControl1.ResumeLayout(false);
@@ -274,18 +276,18 @@
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Ribbon ribbon1;
-        private System.Windows.Forms.RibbonButton ribbonButton1;
-        private System.Windows.Forms.RibbonTab ribbonTab1;
-        private System.Windows.Forms.RibbonPanel ribbonPanel1;
-        private System.Windows.Forms.RibbonButton ribbonButton2;
-        private System.Windows.Forms.RibbonButton ribbonButton3;
-        private System.Windows.Forms.RibbonButton ribbonButton4;
-        private System.Windows.Forms.RibbonButton ribbonButton5;
-        private System.Windows.Forms.RibbonButton ribbonButton6;
-        private System.Windows.Forms.RibbonPanel ribbonPanel2;
-        private System.Windows.Forms.RibbonTab ribbonTab2;
-        private VSControls.UxTabControl uxTabControl1;
+        private Ribbon ribbon1;
+        private RibbonButton ribbonButton1;
+        private RibbonTab ribbonTab1;
+        private RibbonPanel ribbonPanel1;
+        private RibbonButton ribbonButton2;
+        private RibbonButton ribbonButton3;
+        private RibbonButton ribbonButton4;
+        private RibbonButton ribbonButton5;
+        private RibbonButton ribbonButton6;
+        private RibbonPanel ribbonPanel2;
+        private RibbonTab ribbonTab2;
+        private UxTabControl uxTabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;

@@ -1,0 +1,4 @@
+﻿http://www.codeproject.com/Articles/34164/WinForms-Tab-Control-with-properly-drawn-bottom-ta
+https://officeribbon.codeplex.com/
+http://www.codeproject.com/Articles/14741/Advanced-TreeView-for-NET
+http://www.codeproject.com/KB/miscctrl/taskbarnotifier.aspx?fid=13655&fr=26#xx0xx

@@ -1,0 +1,6 @@
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Controls\bin\Debug\SharedFolderSpy.Controls.dll
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Controls\bin\Debug\SharedFolderSpy.Controls.pdb
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Controls\obj\Debug\SharedFolderSpy.Controls.Properties.Resources.resources
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Controls\obj\Debug\SharedFolderSpy.Controls.csproj.GenerateResource.Cache
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Controls\obj\Debug\SharedFolderSpy.Controls.dll
+D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.Controls\obj\Debug\SharedFolderSpy.Controls.pdb

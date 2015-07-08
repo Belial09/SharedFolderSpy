@@ -1,0 +1,3 @@
+D:\.NET Projekte\SharedFolderSpy\NotificationWindow\obj\Debug\NotificationWindow.csprojResolveAssemblyReference.cache
+D:\.NET Projekte\SharedFolderSpy\NotificationWindow\obj\Debug\NotificationWindow.Properties.Resources.resources
+D:\.NET Projekte\SharedFolderSpy\NotificationWindow\obj\Debug\NotificationWindow.csproj.GenerateResource.Cache

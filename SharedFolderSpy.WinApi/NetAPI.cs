@@ -57,6 +57,14 @@ namespace SharedFolderSpy.WinApi
             /// </summary>
             RPC_E_REMOTE_DISABLED = 2147549468 // 0x8001011C
         }
+        public enum NETFILEPERMISSIONS
+        {
+            PERM_FILE_NONE = 0,
+            PERM_FILE_READ = 1,
+            PERM_FILE_WRITE = 2,
+            PERM_FILE_CREATE = 4,
+            PERM_FILE_EXECUTE = 8
+        }
 
         [DllImport("netapi32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         static extern int NetFileEnum(

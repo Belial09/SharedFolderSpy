@@ -1,0 +1,4 @@
+D:\.NET Projekte\SharedFolderSpy\UxTabControlCS\bin\Debug\UxTabControl.dll
+D:\.NET Projekte\SharedFolderSpy\UxTabControlCS\bin\Debug\UxTabControl.pdb
+D:\.NET Projekte\SharedFolderSpy\UxTabControlCS\obj\Debug\UxTabControl.dll
+D:\.NET Projekte\SharedFolderSpy\UxTabControlCS\obj\Debug\UxTabControl.pdb

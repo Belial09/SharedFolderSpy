@@ -2,4 +2,3 @@ D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.WinApi\bin\Debug\SharedFolderSp
 D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.WinApi\bin\Debug\SharedFolderSpy.WinApi.pdb
 D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.WinApi\obj\Debug\SharedFolderSpy.WinApi.dll
 D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.WinApi\obj\Debug\SharedFolderSpy.WinApi.pdb
-D:\.NET Projekte\SharedFolderSpy\SharedFolderSpy.WinApi\obj\Debug\SharedFolderSpy.WinApi.csprojResolveAssemblyReference.cache

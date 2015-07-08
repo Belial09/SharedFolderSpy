@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SharedFolderSpy.UI</RootNamespace>
     <AssemblyName>SharedFolderSpy.UI</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -39,7 +40,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -66,7 +66,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -83,6 +85,10 @@
       <Project>{e73bb233-d88b-44a7-a98f-d71ee158381d}</Project>
       <Name>Aga.Controls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharedFolderSpy.Controls\SharedFolderSpy.Controls.csproj">
+      <Project>{fcdb5e6e-2d22-4d14-a72f-9dce449f5ee7}</Project>
+      <Name>SharedFolderSpy.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SharedFolderSpy.Data\SharedFolderSpy.Data.csproj">
       <Project>{a4da38b7-d028-42bf-8fd8-53b2113d0335}</Project>
       <Name>SharedFolderSpy.Data</Name>
@@ -91,6 +97,17 @@
       <Project>{c53e14e1-550a-45e4-b381-2d79a32c8282}</Project>
       <Name>SharedFolderSpy.WinApi</Name>
     </ProjectReference>
+    <ProjectReference Include="..\System.Windows.Forms.Ribbon\System.Windows.Forms.Ribbon35.csproj">
+      <Project>{46a18a55-5ae8-49ce-91cd-c7421b642e7e}</Project>
+      <Name>System.Windows.Forms.Ribbon35</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UxTabControlCS\UxTabControlCS.csproj">
+      <Project>{7bf2f93f-d798-435b-a92f-879e3d4e4bf4}</Project>
+      <Name>UxTabControlCS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NewFolder1\TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

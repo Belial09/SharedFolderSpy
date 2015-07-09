@@ -1,7 +1,6 @@
 #region
 
 using System.Drawing;
-using System.Windows.Forms;
 using Fesslersoft.SharedFolderSpy.Controls.Ribbon.Classes.Enums;
 
 #endregion

@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using AutoMapper;
 using Fesslersoft.SharedFolderSpy.Native.Entities;
 
 #endregion
@@ -13,23 +14,23 @@ namespace Fesslersoft.SharedFolderSpy.Native
         {
             public enum NetApiStatus : uint
             {
-                NERR_Success = 0,
-                NERR_InvalidComputer = 2351,
-                NERR_NotPrimary = 2226,
-                NERR_SpeGroupOp = 2234,
-                NERR_LastAdmin = 2452,
-                NERR_BadPassword = 2203,
-                NERR_PasswordTooShort = 2245,
-                NERR_UserNotFound = 2221,
-                ERROR_ACCESS_DENIED = 5,
-                ERROR_NOT_ENOUGH_MEMORY = 8,
-                ERROR_INVALID_PARAMETER = 87,
-                ERROR_INVALID_NAME = 123,
-                ERROR_INVALID_LEVEL = 124,
-                ERROR_MORE_DATA = 234,
-                ERROR_SESSION_CREDENTIAL_CONFLICT = 1219,
-                RPC_S_SERVER_UNAVAILABLE = 2147944122,
-                RPC_E_REMOTE_DISABLED = 2147549468 
+                NerrSuccess = 0,
+                NerrInvalidComputer = 2351,
+                NerrNotPrimary = 2226,
+                NerrSpeGroupOp = 2234,
+                NerrLastAdmin = 2452,
+                NerrBadPassword = 2203,
+                NerrPasswordTooShort = 2245,
+                NerrUserNotFound = 2221,
+                ErrorAccessDenied = 5,
+                ErrorNotEnoughMemory = 8,
+                ErrorInvalidParameter = 87,
+                ErrorInvalidName = 123,
+                ErrorInvalidLevel = 124,
+                ErrorMoreData = 234,
+                ErrorSessionCredentialConflict = 1219,
+                RpcSServerUnavailable = 2147944122,
+                RpcERemoteDisabled = 2147549468 
             }
 
             #region StructLayout
@@ -163,6 +164,7 @@ namespace Fesslersoft.SharedFolderSpy.Native
 
             #region Methods
 
+
             public static List<NEtFileEnumResult> BuildNetFileEnumList(string server)
             {
                 var list = new List<NEtFileEnumResult>();
@@ -171,26 +173,16 @@ namespace Fesslersoft.SharedFolderSpy.Native
                 var resumeHandle = 0;
                 var pBuffer = IntPtr.Zero;
                 var status = NetFileEnum(server, null, null, 3, ref pBuffer, -1, out entriesRead, out totalEntries, ref resumeHandle);
-
                 if (status == 0 & entriesRead > 0)
                 {
                     var shareinfoType = typeof (FileInfo3);
                     var offset = Marshal.SizeOf(shareinfoType);
-
                     for (int i = 0, item = pBuffer.ToInt32(); i < entriesRead; i++, item += offset)
                     {
                         var pItem = new IntPtr(item);
                         var fileInfo3 = (FileInfo3) Marshal.PtrToStructure(pItem, shareinfoType);
-                        list.Add(
-                            new NEtFileEnumResult
-                            {
-                                Id = fileInfo3.SessionID,
-                                NumberOfLocks = fileInfo3.NumLocks,
-                                Pathname = fileInfo3.PathName,
-                                Permission = fileInfo3.Permission,
-                                Username = fileInfo3.UserName
-                            }
-                            );
+                        var nEtFileEnumResult = Mapper.Map<FileInfo3, NEtFileEnumResult>(fileInfo3);
+                        list.Add(nEtFileEnumResult);
                     }
                     NetApiBufferFree(pBuffer);
                 }
@@ -200,36 +192,21 @@ namespace Fesslersoft.SharedFolderSpy.Native
             public static List<NetSessionEnumResult> BuildNetSessionEnumList(string server)
             {
                 var list = new List<NetSessionEnumResult>();
-
                 int entriesRead;
                 int totalEntries;
                 var resumeHandle = 0;
-                var pBuffer = IntPtr.Zero;
+                IntPtr pBuffer;
                 var status = NetSessionEnum(server, null, null, 502, out pBuffer, -1, out entriesRead, out totalEntries, ref resumeHandle);
-
                 if (status == 0 & entriesRead > 0)
                 {
                     var shareinfoType = typeof (SessionInfo502);
                     var offset = Marshal.SizeOf(shareinfoType);
-
                     for (int i = 0, item = pBuffer.ToInt32(); i < entriesRead; i++, item += offset)
                     {
                         var pItem = new IntPtr(item);
-
                         var sessionInfo502 = (SessionInfo502) Marshal.PtrToStructure(pItem, shareinfoType);
-                        list.Add(
-                            new NetSessionEnumResult
-                            {
-                                ClientType = sessionInfo502.ClientType,
-                                ComputerName = sessionInfo502.ComputerName,
-                                NumOpens = sessionInfo502.NumOpens,
-                                SecondsActive = sessionInfo502.SecondsActive,
-                                SecondsIdle = sessionInfo502.SecondsIdle,
-                                Transport = sessionInfo502.Transport,
-                                UserFlags = sessionInfo502.UserFlags,
-                                UserName = sessionInfo502.UserName
-                            }
-                            );
+                        var netSessionEnumResult = Mapper.Map<SessionInfo502, NetSessionEnumResult>(sessionInfo502);
+                        list.Add(netSessionEnumResult);
                     }
                 }
                 NetApiBufferFree(pBuffer);
@@ -238,42 +215,25 @@ namespace Fesslersoft.SharedFolderSpy.Native
 
             public static List<NetShareInfoResult> BuildNetShareEnumList(string server)
             {
-                //Note that this code will only work if run as administrator!!
                 var list = new List<NetShareInfoResult>();
-
                 int entriesRead;
                 int totalEntries;
                 var resumeHandle = 0;
-                var pBuffer = IntPtr.Zero;
+                IntPtr pBuffer;
                 var status = NetShareEnum(server, 2, out pBuffer, -1, out entriesRead, out totalEntries, ref resumeHandle);
-
                 if (status == 0 & entriesRead > 0)
                 {
                     var shareinfoType = typeof (ShareInfo2);
                     var offset = Marshal.SizeOf(shareinfoType);
-
                     for (int i = 0, item = pBuffer.ToInt32(); i < entriesRead; i++, item += offset)
                     {
                         var pItem = new IntPtr(item);
-
                         var shareInfo2 = (ShareInfo2) Marshal.PtrToStructure(pItem, shareinfoType);
-                        list.Add(
-                            new NetShareInfoResult
-                            {
-                                CurrentUsers = shareInfo2.CurrentUsers,
-                                MaxUsers = shareInfo2.MaxUsers,
-                                NetName = shareInfo2.NetName,
-                                Password = shareInfo2.Password,
-                                Path = shareInfo2.Path,
-                                Permissions = shareInfo2.Permissions,
-                                Remark = shareInfo2.Remark,
-                                ShareType = shareInfo2.ShareType
-                            }
-                            );
+                        var netShareInfoResult = Mapper.Map<ShareInfo2, NetShareInfoResult>(shareInfo2);
+                        list.Add(netShareInfoResult);
                     }
                 }
                 NetApiBufferFree(pBuffer);
-
                 return list;
             }
 

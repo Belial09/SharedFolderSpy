@@ -3,7 +3,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.Design.Behavior;
-using System.Windows.Forms.VisualStyles;
 using Fesslersoft.SharedFolderSpy.Controls.Ribbon.Classes.Designers;
 
 #endregion

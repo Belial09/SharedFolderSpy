@@ -1,7 +1,6 @@
 #region
 
 using System.ComponentModel.Design;
-using System.Windows.Forms;
 using Fesslersoft.SharedFolderSpy.Controls.Ribbon.Classes.Collections;
 
 #endregion

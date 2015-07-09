@@ -1,6 +1,5 @@
 #region
 
-using System.ComponentModel;
 using Fesslersoft.SharedFolderSpy.Controls.Ribbon.Classes.Collections;
 
 #endregion

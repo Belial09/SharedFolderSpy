@@ -1,7 +1,7 @@
 #region
 
 using System.Drawing;
-using System;
+
 #endregion
 
 namespace Fesslersoft.SharedFolderSpy.Controls.Ribbon.Classes.EventArgs

@@ -9,6 +9,9 @@
 //------------------------------------------------------------------------------
 
 namespace Fesslersoft.SharedFolderSpy.Controls.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
     /// </summary>
@@ -54,6 +57,46 @@ namespace Fesslersoft.SharedFolderSpy.Controls.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BrowseFolders {
+            get {
+                object obj = ResourceManager.GetObject("BrowseFolders", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BrowserBack {
+            get {
+                object obj = ResourceManager.GetObject("BrowserBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BrowserForward {
+            get {
+                object obj = ResourceManager.GetObject("BrowserForward", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BrowserUp {
+            get {
+                object obj = ResourceManager.GetObject("BrowserUp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
